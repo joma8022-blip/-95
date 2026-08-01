@@ -58,6 +58,74 @@ transition:.3s;
 
 .btn:hover{transform:translateY(-3px)}
 
+.social-links{
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:12px;
+margin-top:22px;
+}
+
+.social-link{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:54px;
+padding:13px 16px;
+border:1px solid rgba(200,169,106,.65);
+border-radius:18px;
+background:rgba(7,17,13,.82);
+color:#fff;
+font-size:15px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+backdrop-filter:blur(10px);
+transition:transform .25s,border-color .25s,background .25s;
+}
+
+.social-link:hover{
+transform:translateY(-3px);
+border-color:#C8A96A;
+background:#173227;
+}
+
+.social-link:active{transform:scale(.98)}
+
+.map-card{
+margin-top:18px;
+padding:20px;
+background:rgba(23,50,39,.9);
+border:1px solid rgba(200,169,106,.45);
+border-radius:22px;
+box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
+.map-card p{margin:0 0 16px;color:#ddd;line-height:1.55}
+
+.map-actions{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:10px;
+}
+
+.map-link{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:52px;
+padding:13px 15px;
+border-radius:16px;
+color:#fff;
+font-weight:700;
+text-align:center;
+text-decoration:none;
+transition:transform .25s,filter .25s;
+}
+
+.map-link:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.map-link.yandex{background:linear-gradient(135deg,#ff4433,#e42f24)}
+.map-link.google{background:linear-gradient(135deg,#4285f4,#2468d8)}
+
 
 
 
@@ -486,6 +554,23 @@ padding:12px 16px;
 font-size:14px;
 border-radius:16px;
 }
+
+.social-links{
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:9px;
+margin-top:16px;
+}
+
+.social-link{
+min-height:48px;
+padding:11px 10px;
+font-size:13px;
+border-radius:15px;
+}
+
+.map-actions{grid-template-columns:1fr}
+.map-card{padding:16px}
+.map-link{min-height:48px;font-size:14px}
 }
 
 </style>
@@ -525,6 +610,13 @@ box-shadow:0 25px 60px rgba(0,0,0,.45)">
 <div style="background:#C8A96A;padding:14px 22px;border-radius:18px;font-weight:700">🔥 Популярное меню</div>
 <div style="background:rgba(255,255,255,.08);padding:14px 22px;border-radius:18px">🚚 Доставка</div>
 </div>
+
+<div class="social-links" aria-label="Мы в социальных сетях">
+<a class="social-link" href="https://max.ru/u/f9LHodD0cOJz0gtas-6FCg44xq9x-Pg9242wS1_LFXPheoVN3PwOOVRfIvg" target="_blank" rel="noopener noreferrer">MAX</a>
+<a class="social-link" href="https://t.me/+79035448666" target="_blank" rel="noopener noreferrer">Telegram</a>
+<a class="social-link" href="https://wa.me/79680176890?text=Здравствуйте!%20Хочу%20связаться%20с%20чайханой%20Баракат" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="social-link" href="https://www.instagram.com/chaihana.barakat95?igsh=MXJlaDZ4NDFnZGNqag==" target="_blank" rel="noopener noreferrer">Instagram</a>
+</div>
 </div>
 </div>
 
@@ -552,7 +644,7 @@ box-shadow:0 25px 60px rgba(0,0,0,.45)">
     <div class="card" onclick="openCategory('Рыба')"><img src="img/Рыба.jpg"><p>Рыба</p></div>
 
 
-    <div class="card" onclick="openCategory('Бар')"><img src="img/Бар.jpg"><p>Бар</p></div>
+    <div class="card" onclick="openCategory('Бар')"><img src="img/бар.jpg"><p>Бар</p></div>
 
 
 
@@ -572,16 +664,22 @@ box-shadow:0 25px 60px rgba(0,0,0,.45)">
 <div id="address" class="container hidden">
   <div class="back" onclick="goHome()">← Назад</div>
   <h2>📍 Адрес</h2>
-  <p>Москва, Адрес жазылат</p>
+  <div class="map-card">
+    <p><strong>Чайхана «Баракат»</strong><br>Нажмите кнопку ниже, чтобы посмотреть точный адрес и построить маршрут.</p>
+    <div class="map-actions">
+      <a class="map-link google" style="grid-column:1/-1" href="https://maps.app.goo.gl/UjHBhnf7xEajjYmMA" target="_blank" rel="noopener noreferrer">📍 Посмотреть адрес и построить маршрут</a>
+    </div>
+  </div>
 </div>
 
 <!-- КОНТАКТЫ -->
 <div id="contacts" class="container hidden">
   <div class="back" onclick="goHome()">← Назад</div>
   <h2>📞 Контакты</h2>
-  <p>Телефон:  +79680176890</p>
+  <p>Телефон:  +79309454303</p>
   <p>WhatsApp: +79680176890</p>
-  <p>Instagram: инстарграм жазылат</p>
+  <p>MAX:      +79851882636</p>
+  <p>Telegram: +79035448666</p>
 </div>
 <div id="modal" class="modal hidden">
   <div class="back" onclick="closeModal()">← Назад</div>
@@ -602,6 +700,23 @@ box-shadow:0 25px 60px rgba(0,0,0,.45)">
 </div>
 
 <script>
+
+// Явно получаем элементы страницы — так кнопки работают во всех браузерах,
+// включая открытие HTML-файла прямо с телефона или компьютера.
+const home = document.getElementById('home');
+const menu = document.getElementById('menu');
+const dishes = document.getElementById('dishes');
+const address = document.getElementById('address');
+const contacts = document.getElementById('contacts');
+const modal = document.getElementById('modal');
+const categoryTitle = document.getElementById('categoryTitle');
+const tabs = document.getElementById('tabs');
+const dishList = document.getElementById('dishList');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalPrice = document.getElementById('modalPrice');
+const modalDesc = document.getElementById('modalDesc');
+const modalWeight = document.getElementById('modalWeight');
 
 // BACK SWIPE / HISTORY SUPPORT
 
@@ -1087,7 +1202,7 @@ img:"img/Паста с курицей.jpg"},
 
 
 {name:"Аччу эт",
-weight: "380 г",
+weight: "400 г",
 price:"530₽",
 desc:"говяжья вырезка, лук, томаты, перец чили, картофель",
 img:"img/Аччу эт.jpg"},
@@ -1140,7 +1255,7 @@ img:"img/Манты.jpg"},
 
 {name:"Оромо",
 weight: "300 г",
-price:"340₽",
+price:"360₽",
 desc:"тесто, мясо говядина, лук, картошка",
 img:"img/Оромо.jpg"},
 
@@ -1217,8 +1332,8 @@ img:"img/Нан басты.jpg"},
 
 
 {name:"Ассорти восточный",
-weight: "400 г",
-price:"550₽",
+weight: "450 г",
+price:"575₽",
 
 img:"img/Ассорти восточный.jpg"},
 
@@ -1300,6 +1415,8 @@ price:"550₽",
 
 img:"img/Курутоб с мясом.jpg"},
 
+
+
 {name:"Курутоб с овощами",
 weight: "450 г",
 price:"490₽",
@@ -1375,7 +1492,7 @@ img:"img/Беш-бармак заказ.jpg"},
 
 {name:"Казан кебаб",
 weight: "1кг",
-price:"2700₽",
+price:"2900₽",
 img:"img/Казан кебаб заказ.jpg"},
 
 
@@ -1436,7 +1553,7 @@ img:"img/Рыба форель.jpg"}
 "Блюда на углях":[{title:"Блюда на углях",items:[
 
 {name:"Напалеон",
-price:"390₽",
+price:"480₽",
 img:"img/Напалеон.jpg"},
 
 
@@ -1489,7 +1606,7 @@ img:"img/Овощи на мангале.jpg"},
 
 {name:"Стейк",
 weight: "220г",
-price:"395₽",
+price:"750₽",
 img:"img/Стейк.jpg"},
 
 
@@ -1610,29 +1727,29 @@ img:""},
 
 
 {name:"Компот из сухофруктов в ассортименте",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л,",
+price:"180₽",
 img:""},
 
 
 
 {name:"Морс",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"180₽",
 img:""},
 
 
 {name:"Натахтари в ассортименте",
-weight: "нетмл",
-price:"нет₽",
+weight: "0,5л",
+price:"170₽",
 img:""},
 
 
 
 
 {name:"Аква газированная",
-weight: "нетмл",
-price:"нет₽",
+weight: "0,5л",
+price:"90₽",
 img:""},
 
 
@@ -1640,22 +1757,15 @@ img:""},
 
 
 {name:"Святой грааль",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"110₽",
 img:""},
 
 
 
 {name:"Фанта",
-weight: "нетмл",
-price:"нет₽",
-img:""},
-
-
-
-{name:"Аква",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"230₽",
 img:""},
 
 
@@ -1663,23 +1773,30 @@ img:""},
 
 
 {name:"Пепси",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"230₽",
 img:""},
 
 
 
 {name:"Кока-Кола",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"230₽",
 img:""},
 
 
 
 
-{name:"Кола/пепси/фанта",
-weight: "нетмл",
-price:"нет₽",
+{name:"Кола",
+weight: "0,3л",
+price:"110₽",
+img:""},
+
+
+
+
+{name:"Кола бутылочная",
+price:"165₽",
 img:""},
 
 
@@ -1687,94 +1804,103 @@ img:""},
 
 
 {name:"RC кола",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"250₽",
 img:""},
 
 
 
 
 {name:"Боржоми",
-weight: "нетмл",
-price:"нет₽",
+weight: "1л",
+price:"150₽",
 img:""},
 
 
 
-{name:"Кола",
-weight: "нетмл",
-price:"нет₽",
-img:""}
+
+
+
+
+
 ]},
-
-
-
-
-
 
 {
 title:"Национальные",
 items:[
 
 {name:"Жалал-Абад",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"200 ₽",
 img:""},
 
 
 {name:"Бакай курут",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"3800 ₽",
 img:""},
+
+
+
+{name:"Чий курут",
+weight: "1л",
+price:"380 ₽",
+img:""},
+
+
+
 
 
 {name:"Флавис",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1.25л",
+price:"230 ₽",
 img:""},
 
 
+
+{name:"Флавис",
+weight: "0.5",
+price:"140 ₽",
+img:""},
+
+
+
+
 {name:"Максым шоро",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"250 ₽",
 img:""},
 
 
 {name:"Султан-Чай",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"180 ₽",
 img:""},
 
 
 
 {name:"Аралаш",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"250 ₽",
 img:""},
 
 
 {name:"Нитро",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"140 ₽",
 img:""},
 
 
 {name:"Тан",
-weight: "0.5 мл",
-price:"100 ₽",
+weight: "1л",
+price:"260 ₽",
 img:""},
 
 
 
-
-
-
-
-
-
-{name:"Исти су c/г",
-weight: "0.5 мл",
-price:"250 ₽",
+{name:"Чалап",
+weight: "1л",
+price:"260 ₽",
 img:""}
 ]}
 ],
@@ -1832,7 +1958,7 @@ img:"img/Чизкейк клубничный.jpg"},
 
 {name:"Чизкейк шоколадный",
 weight:"125г",
-price:"265₽",
+price:"270₽",
 img:"img/Чизкейк шоколадный.jpg"},
 
 
@@ -1867,7 +1993,7 @@ img:"img/Торт двойной шоколад.jpg"},
 
 {name:"Чизкейк Нью-Йорк",
 weight:"125г",
-price:"310₽",
+price:"265₽",
 img:"img/Чизкейк Нью-Йорк.jpg"},
 
 
@@ -1875,7 +2001,7 @@ img:"img/Чизкейк Нью-Йорк.jpg"},
 
 {name:"Сметаник",
 weight:"125г",
-price:"310₽",
+price:"260₽",
 img:"img/Сметаник.jpg"},
 
 
